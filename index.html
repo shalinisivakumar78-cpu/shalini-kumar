@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>shalini | Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0d0d0d;
+      color: #f5f5f5;
+      overflow-x: hidden;
+    }
+
+    /* Particle Background */
+    #particles-js {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      background: #0d0d0d;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: rgba(15, 15, 15, 0.9);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+      z-index: 1000;
+    }
+    header h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      color: #a29bfe;
+    }
+    nav a {
+      margin-left: 20px;
+      color: #f5f5f5;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    nav a:hover {
+      color: #55efc4;
+      text-shadow: 0 0 10px #55efc4;
+    }
+
+    /* Hero */
+    #hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    #hero h1 {
+      font-size: 3rem;
+      font-family: 'Dancing Script', cursive;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px #a29bfe;
+    }
+    #hero p {
+      font-size: 1.2rem;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    section {
+      padding: 100px 20px;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.4rem;
+      color: #ffeaa7;
+      text-shadow: 0 0 10px #a29bfe;
+    }
+
+    /* About */
+    #about {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    /* Skills */
+    #skills .skills-wrap {
+      max-width: 900px;
+      margin: auto;
+    }
+    .skill {
+      margin: 20px 0;
+    }
+    .skill p {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .bar {
+      height: 14px;
+      background: #222;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #55efc4, #a29bfe);
+      width: 0;
+      animation: grow 2s forwards;
+    }
+    @keyframes grow {
+      from { width: 0; }
+    }
+
+    /* Projects */
+    #projects .projects-wrap {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .project-box {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #2c2c2c;
+      transition: transform 0.3s;
+    }
+    .project-box:hover {
+      transform: rotateY(8deg) scale(1.03);
+      border-color: #55efc4;
+      box-shadow: 0 0 20px #55efc4;
+    }
+    /* certificate */
+          #certificates .title{font-family:'Dancing Script',cursive;font-size:2.2rem;color:#fff;text-align:center;margin-bottom:20px;}
+          .cert-box{max-width:600px;margin:0 auto;text-align:center;}
+          .cert-box a{display:inline-block;padding:12px 20px;background:#a855f7;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;transition:.3s;}
+          .cert-box a:hover{background:#9333ea;}
+
+    /* Contact */
+    #contact {
+      text-align: center;
+    }
+    .social-links a {
+      margin: 0 10px;
+      font-size: 1.6rem;
+      color: #f5f5f5;
+      transition: 0.3s;
+    }
+    .social-links a:hover {
+      color: #55efc4;
+      text-shadow: 0 0 10px #55efc4;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #222;
+      color: #aaa;
+    }
+
+    /* Scroll To Top */
+    #topBtn {
+      position: fixed;
+      bottom: 20px; right: 20px;
+      background: #55efc4;
+      border: none;
+      padding: 12px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      display: none;
+      box-shadow: 0 0 10px #55efc4;
+    }
+    #topBtn:hover {
+      background: #a29bfe;
+      color: #fff;
+      box-shadow: 0 0 20px #a29bfe;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <header>
+    <h1>shalini</h1>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificate">certificate</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero">
+    <h1>Hello, I'm shalini</h1>
+    <p>A passionate Web Developer skilled in HTML, CSS, JavaScript & PHP</p>
+  </section>
+
+  <!-- About -->
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>
+      I'm shalini, a creative and detail-oriented web developer. I love building interactive, user-friendly websites with clean code and modern designs. My expertise lies in front-end technologies like HTML, CSS, JavaScript, and also back-end with PHP. I'm always eager to learn and take on new challenges.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" data-aos="fade-up">
+    <h2>Skills</h2>
+    <div class="skills-wrap">
+      <div class="skill"><p>HTML</p><div class="bar"><span style="width:90%"></span></div></div>
+      <div class="skill"><p>CSS</p><div class="bar"><span style="width:85%"></span></div></div>
+      <div class="skill"><p>JavaScript</p><div class="bar"><span style="width:95%"></span></div></div>
+      <div class="skill"><p>PHP</p><div class="bar"><span style="width:95%"></span></div></div>
+      <div class="skill"><p>Java</p><div class="bar"><span style="width:95%"></span></div></div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="projects-wrap">
+      <div class="project-box">
+        <h3>Pending Fees Management</h3>
+        <p>A web project to track and manage student pending fees using PHP & MySQL.</p>
+      </div>
+      <div class="project-box">
+        <h3>Admission Reference System</h3>
+        <p>An online admission reference system built with HTML, CSS, JS, and PHP.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- Certificates Section -->
+<section id="certificates">
+  <h2 class="title">CERTIFICATES</h2>
+  <div class="cert-box" data-aos="fade-up">
+    <a href=https://github.com/nivinivetha1412/skynetshalinisivakumar1412-shalini-portfolio/blob/main/shalini.png target="_blank">
+      View My Certificate (PDF)
+    </a>
+  </div>
+</section>
+
+  <!-- Contact -->
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p>Email: skynetshalinisivakumar1412@gmail.com</p>
+    <p>Phone: 6381004601</p>
+    <div class="social-links">
+      <a href="https://wa.me/6381004601" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://instagram.com/your_instagram_username" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:skynetshalinisivakumar@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>©️ 2025 Shalini | All Rights Reserved</p>
+  </footer>
+
+  <button id="topBtn"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    /* ParticlesJS */
+    particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/demo/particles.json');
+
+    /* Scroll to top */
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+    topBtn.onclick = () => window.scrollTo({top:0,behavior:"smooth"});
+
+    /* AOS */
+    AOS.init({ duration: 1000, once: true });
+  </script>
+</body>
+</html>
