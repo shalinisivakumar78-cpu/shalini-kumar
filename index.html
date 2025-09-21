@@ -188,46 +188,40 @@
       background: #9333ea;
     }
     
-    /* Certificate Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.9);
-    }
-    .modal-content {
-      position: relative;
-      margin: 5% auto;
-      padding: 20px;
-      width: 90%;
-      max-width: 800px;
-      text-align: center;
-    }
-    .certificate-img {
-      width: 100%;
-      max-height: 80vh;
-      object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
-    }
-    .close {
-      position: absolute;
-      top: 15px;
-      right: 35px;
-      color: #f1f1f1;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .close:hover {
-      color: #a855f7;
-    }
+   .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  /* Modal content */
+  .modal-content {
+    margin: auto;
+    display: block;
+    text-align: center;
+  }
+
+  /* Close button */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover {
+    color: red;
+  }
     .certificate-caption {
       color: #fff;
       margin-top: 15px;
@@ -494,51 +488,22 @@
     </div>
   </section>
 
-  <!-- Certificates Section -->
-  <section id="certificates">
-    <h2 class="title">CERTIFICATES</h2>
-    <div class="cert-box" data-aos="fade-up">
-      <a id="viewCertificate">View My Certificate</a>
-    </div>
-  </section>
-
-  <!-- Certificate Modal -->
-  <div id="certificateModal" class="modal">
-    <span class="close">&times;</span>
-    <div class="modal-content">
-      <div class="certificate">
-        <div class="certificate-header">
-          <h1>Certificate of Achievement</h1>
-          <p>This certifies that</p>
-        </div>
-        
-        <div class="certificate-body">
-          <h2>Web Development Fundamentals</h2>
-          <div class="recipient-name">Shalini Sivakumar</div>
-          
-          <p class="certificate-text">has successfully satisfied the requirements for</p>
-          
-          <div class="certificate-course">Web Development Fundamentals</div>
-          
-          <p class="certificate-text">In recognition of the commitment to achieve professional excellence</p>
-        </div>
-        
-        <div class="certificate-footer">
-          <div class="certificate-date">
-            <p>Issued on</p>
-            <span>Sep 20, 2025</span>
-          </div>
-          
-          <div class="certificate-issued">
-            <p>Issued by</p>
-            <span>IBM SkillsBuild</span>
-          </div>
-        </div>
-        
-        <div class="certificate-logo">IBM SkillsBuild</div>
-      </div>
-    </div>
+<!-- Certificates Section -->
+<section id="certificates">
+  <h2 class="title">CERTIFICATES</h2>
+  <div class="cert-box" data-aos="fade-up">
+    <a id="viewCertificate">View My Certificate</a>
   </div>
+</section>
+
+<!-- Certificate Modal -->
+<div id="certificateModal" class="modal">
+  <span class="close">&times;</span>
+  <div class="modal-content">
+    <img src="shalini.jpeg" alt="Certificate" style="width:100%; max-width:800px; border:5px solid #000; border-radius:10px;">
+  </div>
+</div>
+
 
   <!-- Contact -->
   <section id="contact" data-aos="fade-up">
@@ -581,26 +546,27 @@
     AOS.init({ duration: 1000, once: true });
 
     /* Certificate Modal */
-    const modal = document.getElementById("certificateModal");
-    const viewBtn = document.getElementById("viewCertificate");
-    const closeBtn = document.getElementsByClassName("close")[0];
+   // Get elements
+  const modal = document.getElementById("certificateModal");
+  const btn = document.getElementById("viewCertificate");
+  const span = document.getElementsByClassName("close")[0];
 
-    viewBtn.onclick = function() {
-      modal.style.display = "block";
-      document.body.style.overflow = "hidden"; // Prevent scrolling
-    }
+  // Open modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
 
-    closeBtn.onclick = function() {
+  // Close modal when clicking X
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Close modal when clicking outside
+  window.onclick = function(event) {
+    if (event.target == modal) {
       modal.style.display = "none";
-      document.body.style.overflow = "auto"; // Enable scrolling
     }
-
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto"; // Enable scrolling
-      }
-    }
+  }
 
     // Close modal with Escape key
     document.addEventListener('keydown', function(event) {
