@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>shalini | Portfolio</title>
+  <title>Shalini | Portfolio</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
@@ -86,6 +86,7 @@
       font-size: 1.2rem;
       color: #ddd;
       margin-bottom: 20px;
+      max-width: 800px;
     }
 
     section {
@@ -158,11 +159,80 @@
       border-color: #55efc4;
       box-shadow: 0 0 20px #55efc4;
     }
-    /* certificate */
-          #certificates .title{font-family:'Dancing Script',cursive;font-size:2.2rem;color:#fff;text-align:center;margin-bottom:20px;}
-          .cert-box{max-width:600px;margin:0 auto;text-align:center;}
-          .cert-box a{display:inline-block;padding:12px 20px;background:#a855f7;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;transition:.3s;}
-          .cert-box a:hover{background:#9333ea;}
+    
+    /* Certificate Section */
+    #certificates .title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.2rem;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .cert-box {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .cert-box a {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #a855f7;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: .3s;
+      cursor: pointer;
+    }
+    .cert-box a:hover {
+      background: #9333ea;
+    }
+    
+    /* Certificate Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+    }
+    .modal-content {
+      position: relative;
+      margin: 5% auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 800px;
+      text-align: center;
+    }
+    .certificate-img {
+      width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+    }
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .close:hover {
+      color: #a855f7;
+    }
+    .certificate-caption {
+      color: #fff;
+      margin-top: 15px;
+      font-size: 1.2rem;
+    }
 
     /* Contact */
     #contact {
@@ -200,11 +270,123 @@
       font-size: 18px;
       display: none;
       box-shadow: 0 0 10px #55efc4;
+      z-index: 1001;
     }
     #topBtn:hover {
       background: #a29bfe;
       color: #fff;
       box-shadow: 0 0 20px #a29bfe;
+    }
+    
+    /* Certificate Styling */
+    .certificate {
+      width: 100%;
+      max-width: 800px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border: 20px solid #1a237e;
+      border-radius: 15px;
+      padding: 40px;
+      color: #333;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      margin: 0 auto;
+    }
+    
+    .certificate-header {
+      margin-bottom: 30px;
+    }
+    
+    .certificate-header h1 {
+      font-size: 36px;
+      color: #1a237e;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .certificate-header p {
+      font-size: 18px;
+      color: #5c6bc0;
+    }
+    
+    .certificate-body {
+      margin-bottom: 40px;
+    }
+    
+    .certificate-body h2 {
+      font-size: 32px;
+      color: #303f9f;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+    .recipient-name {
+      font-size: 42px;
+      color: #1a237e;
+      margin: 25px 0;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .certificate-text {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+    
+    .certificate-course {
+      font-size: 28px;
+      color: #303f9f;
+      font-weight: 600;
+      margin: 30px 0;
+      text-transform: uppercase;
+    }
+    
+    .certificate-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+    
+    .certificate-date, .certificate-issued {
+      text-align: center;
+    }
+    
+    .certificate-date p, .certificate-issued p {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    
+    .certificate-date span, .certificate-issued span {
+      font-weight: 600;
+      font-size: 20px;
+      color: #1a237e;
+    }
+    
+    .certificate-verify {
+      margin-top: 30px;
+      font-size: 16px;
+      color: #5c6bc0;
+    }
+    
+    .certificate-verify a {
+      color: #3949ab;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .certificate-verify a:hover {
+      text-decoration: underline;
+    }
+    
+    .certificate-logo {
+      margin: 20px 0;
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a237e;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
   </style>
 </head>
@@ -212,28 +394,33 @@
   <div id="particles-js"></div>
 
   <header>
-    <h1>shalini</h1>
+    <h1>Shalini</h1>
     <nav>
       <a href="#hero">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
-      <a href="#certificate">certificate</a>
+      <a href="#certificates">Certificate</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <!-- Hero -->
   <section id="hero">
-    <h1>Hello, I'm shalini</h1>
-    <p>A passionate Web Developer skilled in HTML, CSS, JavaScript & PHP</p>
+    <h1>Hello, I'm Shalini</h1>
+    <p>
+      I'm a passionate and versatile developer specializing in both iOS and web technologies. With strong skills in Swift, Java, HTML, CSS, JavaScript, and PHP, I build intuitive, high-performance applications and websites that deliver exceptional user experiences.  
+    </p>
+    <p>
+      Driven by creativity and a commitment to clean, efficient code, I thrive on solving complex problems and turning ideas into reality. Whether developing sleek mobile apps or dynamic web platforms, I focus on innovation and quality to help businesses grow and users stay engaged.
+    </p>
   </section>
 
   <!-- About -->
   <section id="about" data-aos="fade-up">
     <h2>About Me</h2>
     <p>
-      I'm shalini, a creative and detail-oriented web developer. I love building interactive, user-friendly websites with clean code and modern designs. My expertise lies in front-end technologies like HTML, CSS, JavaScript, and also back-end with PHP. I'm always eager to learn and take on new challenges.
+      I'm Shalini, a creative and detail-oriented iOS developer. I love building interactive, user-friendly websites and apps with clean code and modern designs. My expertise lies in front-end technologies like Swift, HTML, CSS, JavaScript, and also back-end with PHP. I'm always eager to learn and take on new challenges.
     </p>
   </section>
 
@@ -241,11 +428,14 @@
   <section id="skills" data-aos="fade-up">
     <h2>Skills</h2>
     <div class="skills-wrap">
+      <div class="skill"><p>iOS</p><div class="bar"><span style="width:98%"></span></div></div>
       <div class="skill"><p>HTML</p><div class="bar"><span style="width:90%"></span></div></div>
       <div class="skill"><p>CSS</p><div class="bar"><span style="width:85%"></span></div></div>
       <div class="skill"><p>JavaScript</p><div class="bar"><span style="width:95%"></span></div></div>
       <div class="skill"><p>PHP</p><div class="bar"><span style="width:95%"></span></div></div>
       <div class="skill"><p>Java</p><div class="bar"><span style="width:95%"></span></div></div>
+      <div class="skill"><p>C</p><div class="bar"><span style="width:98%"></span></div></div>
+      <div class="skill"><p>C++</p><div class="bar"><span style="width:98%"></span></div></div>
     </div>
   </section>
 
@@ -254,17 +444,57 @@
     <h2>Projects</h2>
     <div class="projects-wrap">
       <div class="project-box">
-        <h3>Pending Fees Management</h3>
-        <p>A web project to track and manage student pending fees using PHP & MySQL.</p>
+        <h3>AI Voice Translation</h3>
+        <p>An iOS project to convert voice into text using AI translation.</p>
       </div>
       <div class="project-box">
-        <h3>Admission Reference System</h3>
-        <p>An online admission reference system built with HTML, CSS, JS, and PHP.</p>
+        <h3>Task Tracker</h3>
+        <p>A simple and intuitive task tracker app built with Swift to help you stay organized and productive.</p>
+      </div>
+      <div class="project-box">
+        <h3>Hospital Web Page</h3>
+        <p>A clean and professional single-page hospital design created to showcase essential healthcare information and services.</p>
+      </div>
+      <div class="project-box">
+        <h3>Story World App</h3>
+        <p>An iOS app showcasing the top 100 stories, allowing users to read and enjoy a curated collection of engaging tales.</p>
+      </div>
+      <div class="project-box">
+        <h3>Personality Quiz App</h3>
+        <p>A fun and interactive iOS app that helps users discover their personality type through a series of engaging quizzes.</p>
+      </div>
+      <div class="project-box">
+        <h3>School Management Software App</h3>
+        <p>An iOS app designed to simplify school operations by managing students, teachers, attendance, and academic records efficiently.</p>
+      </div>
+      <div class="project-box">
+        <h3>Fit Me App</h3>
+        <p>A health-focused iOS app that provides users with a personalized 30-day diet chart to support fitness and nutrition goals.</p>
+      </div>
+      <div class="project-box">
+        <h3>Cards Game App</h3>
+        <p>An entertaining iOS card game app offering classic gameplay with smooth animations and a user-friendly interface.</p>
+      </div>
+      <div class="project-box">
+        <h3>Math Quiz App</h3>
+        <p>An educational iOS app that helps users improve their math skills through fun and challenging quizzes across various difficulty levels.</p>
+      </div>
+      <div class="project-box">
+        <h3>Swift Learning App</h3>
+        <p>An interactive iOS app built in Swift that helps users learn the Swift programming language through hands-on lessons and examples.</p>
+      </div>
+      <div class="project-box">
+        <h3>Swift Framework for Neural Engine</h3>
+        <p>A powerful Swift framework designed to leverage Apple's Neural Engine for optimized machine learning and AI processing on iOS devices.</p>
+      </div>
+      <div class="project-box">
+        <h3>Graph Charts</h3>
+        <p>Six detailed graphs illustrating data and insights from skynet developer environment and swift Neural Engine.</p>
       </div>
     </div>
   </section>
 
- <!-- Certificates Section -->
+  <!-- Certificates Section -->
   <section id="certificates">
     <h2 class="title">CERTIFICATES</h2>
     <div class="cert-box" data-aos="fade-up">
@@ -276,11 +506,39 @@
   <div id="certificateModal" class="modal">
     <span class="close">&times;</span>
     <div class="modal-content">
-      <img class="certificate-img" src="https://github.com/shalinisivakumar78-cpu/shalini-kumar/blob/main/shalini.jpeg" alt="Certificate">
-      <p class="certificate-caption">Certificate of Achievement</p>
+      <div class="certificate">
+        <div class="certificate-header">
+          <h1>Certificate of Achievement</h1>
+          <p>This certifies that</p>
+        </div>
+        
+        <div class="certificate-body">
+          <h2>Web Development Fundamentals</h2>
+          <div class="recipient-name">Shalini Sivakumar</div>
+          
+          <p class="certificate-text">has successfully satisfied the requirements for</p>
+          
+          <div class="certificate-course">Web Development Fundamentals</div>
+          
+          <p class="certificate-text">In recognition of the commitment to achieve professional excellence</p>
+        </div>
+        
+        <div class="certificate-footer">
+          <div class="certificate-date">
+            <p>Issued on</p>
+            <span>Sep 20, 2025</span>
+          </div>
+          
+          <div class="certificate-issued">
+            <p>Issued by</p>
+            <span>IBM SkillsBuild</span>
+          </div>
+        </div>
+        
+        <div class="certificate-logo">IBM SkillsBuild</div>
+      </div>
     </div>
   </div>
-
 
   <!-- Contact -->
   <section id="contact" data-aos="fade-up">
@@ -289,7 +547,8 @@
     <p>Phone: 6381004601</p>
     <div class="social-links">
       <a href="https://wa.me/6381004601" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://instagram.com/your_instagram_username" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.instagram.com/shalinisiva03?igsh=dTd2b2lic3kwNGdl" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/shalini-sivakumar-834627342?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="mailto:skynetshalinisivakumar@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
   </section>
@@ -320,6 +579,36 @@
 
     /* AOS */
     AOS.init({ duration: 1000, once: true });
+
+    /* Certificate Modal */
+    const modal = document.getElementById("certificateModal");
+    const viewBtn = document.getElementById("viewCertificate");
+    const closeBtn = document.getElementsByClassName("close")[0];
+
+    viewBtn.onclick = function() {
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden"; // Prevent scrolling
+    }
+
+    closeBtn.onclick = function() {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto"; // Enable scrolling
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto"; // Enable scrolling
+      }
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape" && modal.style.display === "block") {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto"; // Enable scrolling
+      }
+    });
   </script>
 </body>
 </html>
